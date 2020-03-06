@@ -830,7 +830,7 @@ do_reply(Status, Headers, Body, Req) ->
 	done_replying(NewReq, true).
 
 do_hook(Status, Headers, Req) ->
-	Handler = maps:get(hook_module, Req),
+	Handler = maps:get(hook_module, Req, undefined),
 	case erlang:function_exported(Handler, response_hook, 3) of
 		true ->
 			try
