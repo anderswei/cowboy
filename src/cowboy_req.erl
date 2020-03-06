@@ -841,7 +841,9 @@ do_hook(Status, Headers, Req) ->
 					{Status, Headers, Req}
 			catch _:_ ->
 				{Status, Headers, Req}
-			end
+			end;
+		false -> 
+				{Status, Headers, Req}
 	end.
 
 done_replying(Req, HasSentResp) ->
